@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    stream:
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers:
+          - localhost:9092
+      function:
+        bindings:
+          processUsageCost-in-0: input
+          processUsageCost-out-0: output
+      bindings:
+        input:
+          destination: usage-detail
+        output:
+          destination: usage-cost  

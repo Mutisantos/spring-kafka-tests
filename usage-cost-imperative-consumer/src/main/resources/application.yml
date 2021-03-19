@@ -1,0 +1,30 @@
+spring:
+  cloud:
+    stream:
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers:
+          - localhost:9092
+      bindings:
+        input:
+         binder: kafka
+         destination: test
+         content-type: application/json
+         group: input-group-1
+        output:
+          binder: kafka
+          destination: test
+          group: output-group-1
+          content-type: application/json
+        usage-input:
+          binder: kafka
+          destination: usage-detail
+          group: input-group-2
+          content-type: application/json
+        usage-output:
+          binder: kafka
+          destination: usage-cost
+          group: output-group-2
+          content-type: application/json
+          
