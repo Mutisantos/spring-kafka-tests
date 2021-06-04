@@ -33,21 +33,21 @@ import lombok.AllArgsConstructor;
     //			};
     //		}
 
-    @Bean
-    public Function<UpdatedHealthDetails, AlertedHealthState> processHealth() {
-        return updatedHealth -> {
-            logger.info(String
-                .format("New Health Details: [%s] in new Location: [%s]", updatedHealth.toString()));
-            return useCase.evaluateHealthState(updatedHealth, null);
-        };
-    }
+    //    @Bean
+    //    public Function<UpdatedHealthDetails, AlertedHealthState> processHealth() {
+    //        return updatedHealth -> {
+    //            logger.info(String
+    //                .format("New Health Details: [%s] in new Location: [%s]", updatedHealth.toString()));
+    //            return useCase.evaluateHealthState(updatedHealth, null);
+    //        };
+    //    }
 
     @Bean
     public Function<UpdatedGeoLocation, AlertedHealthState> processPosition() {
         return updatedGeoLocation -> {
             logger.info(String
-                .format("New Health Details: [%s] in new Location: [%s]", updatedGeoLocation.toString()));
-            return useCase.evaluateHealthState(null, updatedGeoLocation);
+                .format("New Health Details: {}", updatedGeoLocation.toString()));
+            return AlertedHealthState.builder().build();
         };
     }
 
