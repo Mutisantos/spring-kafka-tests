@@ -1,0 +1,18 @@
+server:
+  port: 9002
+spring:
+  cloud:
+    stream:
+      instanceCount: 2
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers:
+          - localhost:9092
+      bindings:
+        output:
+          binder: kafka
+          destination: geoposition
+          group: output-group-1
+          content-type: application/json
+          

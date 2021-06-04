@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.function.Consumer;
 
 import io.spring.dataflow.sample.usagecostloggerkafka.UsageCostLoggerKafkaApplication;
-import io.spring.dataflow.sample.usagecostloggerkafka.model.UsageCostDetail;
+import io.spring.dataflow.sample.usagecostloggerkafka.model.NewUsageCostEvent;
 
 @Configuration
 public class UsageCostLogger {
@@ -17,9 +17,9 @@ public class UsageCostLogger {
       LoggerFactory.getLogger(UsageCostLoggerKafkaApplication.class);
 
   @Bean
-  public Consumer<UsageCostDetail> processCostDetails() {
-    return usageCostDetail -> {
-      logger.info(usageCostDetail.toString());
+  public Consumer<NewUsageCostEvent> processCostDetails() {
+    return newUsageCostEvent -> {
+      logger.info(newUsageCostEvent.toString());
     };
   }
 }

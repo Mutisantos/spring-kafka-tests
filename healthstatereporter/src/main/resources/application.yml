@@ -1,0 +1,16 @@
+server:
+  port: 9003
+spring:
+  cloud:
+    stream:
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers:
+          - localhost:9092
+      bindings:
+        output:
+          binder: kafka
+          destination: health-report
+          group: output-group-1
+          content-type: application/json

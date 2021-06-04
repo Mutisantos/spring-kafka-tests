@@ -1,0 +1,35 @@
+server:
+  port: 9001
+spring:
+  cloud:
+    stream:
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers:
+          - localhost:9092
+      function:
+        bindings:
+          #          processHealthAndLocation-in-0: health-report
+          #          processHealthAndLocation-in-1: geoposition
+          processPosition-in-0: input
+          processPosition-out-0: output
+          #          processPosition-in-0: geoposition
+          #          processPosition-out-0: health-warning
+      bindings:
+        input:
+          destination: geoposition
+          group: input-group-1
+          content-type: application/json
+#        geoposition:
+        #          destination: geoposition
+        #          group: input-group-1
+        #          content-type: application/json
+        output:
+          destination: health-warning
+          content-type: application/json
+          group: output-group-1
+
+patient:
+  maxTemperature: 38
+  maxSymptoms: 5

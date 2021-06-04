@@ -12,7 +12,7 @@ import io.spring.dataflow.sample.usagecostprocessorkafka.model.UsageCostDetail;
 import io.spring.dataflow.sample.usagecostprocessorkafka.model.UsageDetail;
 
 @Configuration
-public class UsageDetailsSender {
+public class UsageCostProcessor {
 
   private final BigDecimal ratePerSecond = BigDecimal.valueOf(0.10);
   private final BigDecimal ratePerMB = BigDecimal.valueOf(0.05);

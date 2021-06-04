@@ -21,7 +21,7 @@ import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.spring.dataflow.sample.usagecostloggerkafka.model.UsageCostDetail;
+import io.spring.dataflow.sample.usagecostloggerkafka.model.NewUsageCostEvent;
 
 @ExtendWith(OutputCaptureExtension.class)
 class UsageCostLoggerKafkaApplicationTests {
@@ -41,7 +41,7 @@ class UsageCostLoggerKafkaApplicationTests {
 
       final InputDestination source = context.getBean(InputDestination.class);
 
-      final UsageCostDetail usageDetail = new UsageCostDetail();
+      final NewUsageCostEvent usageDetail = new NewUsageCostEvent();
       usageDetail.setUserId("user1");
       usageDetail.setDataCost(BigDecimal.valueOf(30.00).multiply(BigDecimal.ONE, mathContext));
       usageDetail.setCallCost(BigDecimal.valueOf(100.00).multiply(BigDecimal.ONE, mathContext));

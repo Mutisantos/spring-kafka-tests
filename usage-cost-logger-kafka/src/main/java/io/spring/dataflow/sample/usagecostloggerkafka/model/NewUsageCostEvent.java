@@ -12,7 +12,7 @@ import java.time.ZonedDateTime;
 @Setter
 @Getter
 @ToString
-public class UsageCostDetail {
+public class NewUsageCostEvent {
   private String userId;
   private BigDecimal callCost;
   private BigDecimal dataCost;

@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.cloud.stream.messaging.Processor;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.messaging.support.MessageBuilder;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -17,7 +17,7 @@ import io.spring.dataflow.kafka.imperative.usagecostimperativeconsumer.model.Usa
 import io.spring.dataflow.kafka.imperative.usagecostimperativeconsumer.model.UsageDetail;
 
 @SuppressWarnings("deprecation")
-@EnableBinding(CustomStreamProcessor.class)
+@EnableBinding(Processor.class)
 public class UsageCostConsumer {
 
   private final BigDecimal ratePerSecond = BigDecimal.valueOf(0.10);
@@ -25,8 +25,8 @@ public class UsageCostConsumer {
   private static final MathContext context = new MathContext(2, RoundingMode.HALF_UP);
   private static final Logger logger = LoggerFactory.getLogger(UsageCostConsumer.class);
 
-  @StreamListener(target = "usage-detail")
-  @SendTo("test")
+  @StreamListener(target = Processor.INPUT)
+  @SendTo(Processor.OUTPUT)
   public UsageCostDetail processDetails(@Payload final UsageDetail message) {
     logger.info("received a string message : {}", message);
     return UsageCostDetail.builder().userId(message.getUserId())
