@@ -19,7 +19,7 @@ public class HealthReportController {
 
   // get the message as a complex type via HTTP, publish it to broker using spring cloud stream
   @PostMapping(value = "/healthState")
-  public String publishMessageComplextType(@RequestBody final ReportedHealthDetails payload) {
+  public String publishMessageComplexType(@RequestBody final ReportedHealthDetails payload) {
     producer.getMySource().output()
         .send(MessageBuilder.withPayload(payload).build());
     return "success";
