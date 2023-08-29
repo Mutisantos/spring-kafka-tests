@@ -1,7 +1,6 @@
 package io.spring.dataflow.sample.usagedetailsenderkafka;
 
-import static org.assertj.core.api.BDDAssertions.then;
-
+import io.spring.dataflow.sample.usagedetailsenderkafka.model.UsageDetail;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -15,7 +14,7 @@ import org.springframework.messaging.converter.MessageConverter;
 
 import java.math.BigDecimal;
 
-import io.spring.dataflow.sample.usagedetailsenderkafka.model.UsageDetail;
+import static org.assertj.core.api.BDDAssertions.then;
 
 @SpringBootTest
 public class UsageDetailSenderKafkaApplicationTest {

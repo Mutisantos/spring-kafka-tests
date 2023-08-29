@@ -1,5 +1,6 @@
 package io.spring.dataflow.sample.usagecostloggerkafka;
 
+import io.spring.dataflow.sample.usagecostloggerkafka.model.NewUsageCostEvent;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,11 +22,8 @@ import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.spring.dataflow.sample.usagecostloggerkafka.model.NewUsageCostEvent;
-
 @ExtendWith(OutputCaptureExtension.class)
 class UsageCostLoggerKafkaApplicationTests {
-
 
   private static final MathContext mathContext = new MathContext(2, RoundingMode.HALF_UP);
 

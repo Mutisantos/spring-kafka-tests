@@ -10,4 +10,5 @@ class HealthstatereporterApplicationTests {
 	void contextLoads() {
 	}
 
+	
 }

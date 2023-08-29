@@ -60,5 +60,4 @@ class UsageCostProcessorKafkaApplicationTests {
       then(usageCostDetail.getDataCost()).isEqualTo(BigDecimal.valueOf(5.00));
     }
   }
-
 }
